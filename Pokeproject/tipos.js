@@ -1,0 +1,20 @@
+export const coresTipo = {
+    'normal': 'bg-gray-400',
+    'fighting': 'bg-red-700',
+    'flying': 'bg-blue-400',
+    'poison': 'bg-purple-600',
+    'ground': 'bg-yellow-700',
+    'rock': 'bg-gray-600',
+    'bug': 'bg-green-600',
+    'ghost': 'bg-purple-700',
+    'steel': 'bg-gray-500',
+    'fire': 'bg-red-600',
+    'water': 'bg-blue-600',
+    'grass': 'bg-green-500',
+    'electric': 'bg-yellow-400',
+    'psychic': 'bg-pink-600',
+    'ice': 'bg-blue-300',
+    'dragon': 'bg-indigo-600',
+    'dark': 'bg-gray-800',
+    'fairy': 'bg-pink-400'
+}
