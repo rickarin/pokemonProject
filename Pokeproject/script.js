@@ -1,4 +1,5 @@
 import { coresTipo } from './tipos.js'
+import { createStatBar } from './statBar.js'
 
 function paginaInicial () {
     const btnPesquisar = document.querySelector("#btn-pesquisar")
@@ -12,6 +13,7 @@ function paginaInicial () {
         const respostaApi = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputPokemon.value.toLowerCase()}/`)
         const dados = await respostaApi.json()
 
+        // Parte de Tipagem do Pokemon
         tipoPokemon.innerText = ""
         dados.types.forEach(tipo => {
             const nomeTipo = tipo.type.name
@@ -34,12 +36,24 @@ function paginaInicial () {
             const texto = document.createElement('span')
             texto.innerText = nomeTipo.charAt(0).toUpperCase() + nomeTipo.slice(1)
             texto.className = `bg-background-type text-white font-bold px-4 py-2`
+
+           
             
             span.appendChild(iconContainer)
             span.appendChild(texto)
             tipoPokemon.appendChild(span)
         } )
 
+         //stats do Pokemon
+            const statsContainer = document.createElement('div')
+            statsContainer.innerHTML = ''
+
+            dados.stats.forEach( stat => {
+                const barElement = createStatBar(stat.stat.name, stat.base_stat)
+                statsContainer.appendChild(barElement)
+            })
+
+            tipoPokemon.appendChild(statsContainer)
 
         hidden.classList.remove('hidden')
         resposta.textContent = dados.name.charAt(0).toUpperCase() + dados.name.slice(1);
