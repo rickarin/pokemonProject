@@ -37,7 +37,7 @@ function App() {
           </h2>
         <TypePokemon pokemonData={pokemonData.types}/>
 
-        <StatsBarPokemon stats={pokemonData.stats}/>
+        <StatsBarPokemon stats={pokemonData.stats} moves={pokemonData.moves}/>
         </div>
       )}
     </div>

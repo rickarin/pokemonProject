@@ -2,7 +2,7 @@ import BtnMoveset from "./BtnMoveset";
 import MovesetModal from "./MovesetModal";
 import { useState } from "react";
 
-function StatsBarPokemon({ stats }) {
+function StatsBarPokemon({ stats, moves }) {
   // 1. Calculamos o total de uma vez só
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const total = stats.reduce((acc, curr) => acc + curr.base_stat, 0);
@@ -20,7 +20,7 @@ function StatsBarPokemon({ stats }) {
         <span className="w-8 text-xs font-bold text-dark-amethyst">{total}</span>
         <div className="flex-grow"></div>
         <BtnMoveset ativarModal={() => setModalIsOpen(true)} />
-        <MovesetModal open={modalIsOpen} onClose={() => setModalIsOpen(false)} />
+        <MovesetModal open={modalIsOpen} onClose={() => setModalIsOpen(false)} moves={moves} />
       </div>
     </div>
   );
