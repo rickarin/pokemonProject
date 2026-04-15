@@ -1,5 +1,10 @@
+import BtnMoveset from "./BtnMoveset";
+import MovesetModal from "./MovesetModal";
+import { useState } from "react";
+
 function StatsBarPokemon({ stats }) {
   // 1. Calculamos o total de uma vez só
+  const [modalIsOpen, setModalIsOpen] = useState(false)
   const total = stats.reduce((acc, curr) => acc + curr.base_stat, 0);
 
   return (
@@ -14,7 +19,8 @@ function StatsBarPokemon({ stats }) {
         <span className="w-20 text-xs font-bold text-dark-amethyst">Total</span>
         <span className="w-8 text-xs font-bold text-dark-amethyst">{total}</span>
         <div className="flex-grow"></div>
-        <span className="w-8 text-xs text-gray-500 text-right">-</span>
+        <BtnMoveset ativarModal={() => setModalIsOpen(true)} />
+        <MovesetModal open={modalIsOpen} onClose={() => setModalIsOpen(false)} />
       </div>
     </div>
   );
