@@ -20,7 +20,7 @@ function StatsBarPokemon({ stats, moves }) {
         <span className="w-8 text-xs font-bold text-dark-amethyst">{total}</span>
         <div className="flex-grow"></div>
         <BtnMoveset ativarModal={() => setModalIsOpen(true)} />
-        <MovesetModal open={modalIsOpen} onClose={() => setModalIsOpen(false)} moves={moves} />
+        <MovesetModal open={modalIsOpen} onClose={() => setModalIsOpen(false)} moves={moves.slice(0, 20)} />
       </div>
     </div>
   );
